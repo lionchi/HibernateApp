@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="26.03.2019 create tables" author="Gavrilov Ivan">
+    <changeSet id="№2 create tables" author="Gavrilov Ivan">
         <createTable tableName="user">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -25,8 +25,28 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name_role" type="varchar(100)">
+            <column name="name_role" type="varchar(50)">
                 <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="privilege">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="privilege_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="role_privilege">
+            <column name="role_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_role_privilege_role"
+                             referencedTableName="role" referencedColumnNames="id"/>
+            </column>
+            <column name="privilege_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_role_privilege_privilege"
+                             referencedTableName="privilege" referencedColumnNames="id"/>
             </column>
         </createTable>
 

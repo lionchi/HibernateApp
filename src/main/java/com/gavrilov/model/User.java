@@ -1,14 +1,17 @@
 package com.gavrilov.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "user")
 public class User extends BaseEntity {
 
+    @NotEmpty(message = "Логин недолжен быть пустым")
     @Column(name = "login", nullable = false, unique = true)
     private String login;
 
+    @NotEmpty(message = "Пароль недолжен быть пустым")
     @Column(name = "password", nullable = false, unique = true)
     private String password;
 
@@ -16,7 +19,7 @@ public class User extends BaseEntity {
     private Integer enabled;
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "role_id") // владеемая сущность
     private Role role;
 
     public User() {

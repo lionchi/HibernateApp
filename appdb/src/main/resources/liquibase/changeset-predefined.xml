@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="15.10.2018 insert data in tables" author="Gavrilov Ivan">
+    <changeSet id="№1 insert data in tables" author="Gavrilov Ivan">
         <insert tableName="role">
             <column name="id" valueNumeric="01"/>
             <column name="name_role" value="ADMIN"/>
@@ -12,6 +12,36 @@
         <insert tableName="role">
             <column name="id" valueNumeric="02"/>
             <column name="name_role" value="USER"/>
+        </insert>
+
+        <insert tableName="privilege">
+            <column name="id" valueNumeric="01"/>
+            <column name="privilege_name" value="create"/>
+        </insert>
+        <insert tableName="privilege">
+            <column name="id" valueNumeric="02"/>
+            <column name="privilege_name" value="remove"/>
+        </insert>
+        <insert tableName="privilege">
+            <column name="id" valueNumeric="03"/>
+            <column name="privilege_name" value="read"/>
+        </insert>
+
+        <insert tableName="role_privilege">
+            <column name="role_id" valueNumeric="01"/>
+            <column name="privilege_id" valueNumeric="01"/>
+        </insert>
+        <insert tableName="role_privilege">
+            <column name="role_id" valueNumeric="01"/>
+            <column name="privilege_id" valueNumeric="02"/>
+        </insert>
+        <insert tableName="role_privilege">
+            <column name="role_id" valueNumeric="01"/>
+            <column name="privilege_id" valueNumeric="03"/>
+        </insert>
+        <insert tableName="role_privilege">
+            <column name="role_id" valueNumeric="02"/>
+            <column name="privilege_id" valueNumeric="03"/>
         </insert>
 
         <insert tableName="user">

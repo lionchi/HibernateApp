@@ -14,7 +14,7 @@ public class BasicDAOImpl implements BasicDAO {
     }
 
     @Override
-    public Object get(Class entityClass, int entityId) {
+    public Object get(Class entityClass, Long entityId) {
         return transactional(em -> em.find(entityClass, entityId),
                 String.format("Could not find entity with Id %s", entityId));
     }
