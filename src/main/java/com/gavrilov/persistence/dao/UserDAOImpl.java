@@ -10,6 +10,9 @@ import static com.gavrilov.persistence.common.ExecuteUtils.transactional;
 
 public class UserDAOImpl implements UserDAO {
 
+    @Inject
+    private BasicDAO basicDAO;
+
     public User create(@Valid User user) {
         return (User) transactional(entityManager -> {
                     entityManager.persist(user);
@@ -19,8 +22,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public User get(Long employeeId) {
-        return (User) transactional(entityManager ->
-                entityManager.find(User.class, employeeId), "Такого пользователя нет");
+        return (User) basicDAO.get(User.class, employeeId);
     }
 
     public User update(@Valid User employee) {

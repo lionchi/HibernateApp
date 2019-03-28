@@ -1,10 +1,16 @@
 package com.gavrilov.persistence.dao;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import java.util.List;
 
 import static com.gavrilov.persistence.common.ExecuteUtils.transactional;
 
 public class BasicDAOImpl implements BasicDAO {
+
+    @Inject
+    private EntityManager entityManager;
+
     @Override
     public Object create(Object newEntity) {
         return transactional(em -> {
