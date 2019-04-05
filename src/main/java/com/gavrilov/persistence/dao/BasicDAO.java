@@ -5,7 +5,7 @@ import java.util.List;
 public interface BasicDAO {
     Object create(Object newEntity);
 
-    Object get(Class entityClass, int entityId);
+    Object get(Class entityClass, Long entityId);
 
     Object update(Object entity);
 

@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.RollbackException;
 
+@Deprecated
 public class ExecuteUtils {
     private static final Logger log = LoggerFactory.getLogger(ExecuteUtils.class);
 

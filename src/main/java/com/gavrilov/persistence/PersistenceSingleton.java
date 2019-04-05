@@ -3,6 +3,7 @@ package com.gavrilov.persistence;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+@Deprecated
 public enum PersistenceSingleton {
     instance;
 
